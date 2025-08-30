@@ -1,8 +1,11 @@
 <?php   
 
-class About{
-    public function index($nama = 'John Doe', $hobby = 'coding') {
-        echo 'Halo, saya mahasiswa bernama ' . $nama . ' dan saya suka ' . $hobby;
+class About extends Controller {
+    public function index($nama = 'Enjel', $hobby = 'coding', $umur = 20) {
+        $data['nama'] = $nama;
+        $data['hobby'] = $hobby;
+        $data['umur'] = $umur;
+        $this->view('about/index', $data);
     }
 
     public function page() {
