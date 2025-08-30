@@ -8,4 +8,4 @@
             <p>Umur: <?= $data['umur']; ?></p>
         </div>
     </div>
-</div>
+</div>  
