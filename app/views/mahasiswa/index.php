@@ -1,7 +1,7 @@
 <div class="container">
     <h3>Daftar Mahasiswa</h3>
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Tambah Mahasiswa
     </button>
     <br><br>
@@ -27,8 +27,9 @@
                     <td><?= $mhs['email']; ?></td>
                     <td><?= $mhs['jurusan']; ?></td>
                     <td>
-                        <a href="<?= BASE_URL; ?>/mahasiswa/edit/<?= $mhs['id']; ?>" class="btn btn-warning">Edit</a>
-                        <a href="<?= BASE_URL; ?>/mahasiswa/delete/<?= $mhs['id']; ?>" class="btn btn-danger">Delete</a>
+                        <a href="<?= BASE_URL; ?>/mahasiswa/edit/<?= $mhs['id']; ?>" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning tampilModalUbah" data-id="<?= $mhs['id']; ?>">Edit</a>
+                        <a href="<?= BASE_URL; ?>/mahasiswa/delete/<?= $mhs['id']; ?>" class="btn btn-danger" 
+                        onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
