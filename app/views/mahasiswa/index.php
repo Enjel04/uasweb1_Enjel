@@ -14,6 +14,8 @@
                 <tr>
                     <td><?= $mhs['id']; ?></td>
                     <td><?= $mhs['nama']; ?></td>
+                    <td><?= $mhs['nrp']; ?></td> 
+                    <td><?= $mhs['email']; ?></td>
                     <td><?= $mhs['jurusan']; ?></td>
                     <td>
                         <a href="<?= BASE_URL; ?>/mahasiswa/edit/<?= $mhs['id']; ?>" class="btn btn-warning">Edit</a>
