@@ -5,7 +5,9 @@
         Tambah Mahasiswa
     </button>
     <br><br>
-
+    <div class="flash-messages">
+        <?php Flasher::flash(); ?>
+    </div>
 
     <table class="table">
         <thead>
