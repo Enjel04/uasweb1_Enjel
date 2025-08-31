@@ -1,27 +1,24 @@
 <?php
 
 class Mahasiswa_model {
-    private $mhs= [
-    [
-        "id" => 1,
-        "nama" => "John Doe",
-        "jurusan" => "Teknik Informatika"
-    ],
-    [
-        "id" => 2,
-        "nama" => "Jane Smith",
-        "jurusan" => "Sistem Informasi"
-    ],
-    [
-        "id" => 3,
-        "nama" => "Alice Johnson",
-        "jurusan" => "Teknik Komputer"
-    ]
-    ];
+    private $dbh;
+    private $stmt;
 
+    public function __construct() {
+        $dsn = 'mysql:host=localhost;dbname=uasweb1_enjel';
+
+        try {
+            $this->dbh = new PDO($dsn, 'root', '');
+            $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+    }
 
     public function getAllMahasiswa() {
-        return $this->mhs;
+        $this->stmt = $this->dbh->prepare("SELECT * FROM mahasiswa");
+        $this->stmt->execute();
+        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
