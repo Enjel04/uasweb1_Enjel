@@ -11,23 +11,24 @@ class Mahasiswa extends Controller {
 
     public function tambah() {
         if ($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success', $nama = $_POST['nama']);
             header('Location: ' . BASE_URL . '/mahasiswa');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger', $nama);
             header('Location: ' . BASE_URL . '/mahasiswa');
             exit;
         }
     }
     
     public function delete($id) {
+        $mahasiswa = $this->model('Mahasiswa_model')->getMahasiswaById($id);
         if ($this->model('Mahasiswa_model')->hapusDataMahasiswa($id) > 0) {
-            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            Flasher::setFlash('berhasil', 'dihapus', 'success', $nama = $mahasiswa['nama']);
             header('Location: ' . BASE_URL . '/mahasiswa');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            Flasher::setFlash('gagal', 'dihapus', 'danger', $mahasiswa['nama']);
             header('Location: ' . BASE_URL . '/mahasiswa');
             exit;
         }
