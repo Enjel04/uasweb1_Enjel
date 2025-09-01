@@ -10,6 +10,11 @@
     </div>
 
     <table class="table">
+      <form action="<?= BASE_URL; ?>/mahasiswa/cari" method="POST">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Cari Mahasiswa" name="keyword" id="keyword">
+          <button class="btn btn-outline-secondary" type="submit">Cari</button>
+        </div>
         <thead>
             <tr>
                 <th>ID</th>
