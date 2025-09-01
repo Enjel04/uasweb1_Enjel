@@ -9,16 +9,20 @@
         <?php Flasher::flash(); ?>
     </div>
 
+    <form action="<?= BASE_URL; ?>/mahasiswa/cari" method="POST">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Cari Mahasiswa" name="keyword" id="keyword" autocomplete="off">
+        <button class="btn btn-outline-secondary" type="submit" id="tombolCari">Cari</button>
+      </div>
+    </form>
+
     <table class="table">
-      <form action="<?= BASE_URL; ?>/mahasiswa/cari" method="POST">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Cari Mahasiswa" name="keyword" id="keyword">
-          <button class="btn btn-outline-secondary" type="submit">Cari</button>
-        </div>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nama</th>
+                <th>NRP</th>
+                <th>Email</th>
                 <th>Jurusan</th>
                 <th>Action</th>
             </tr>
